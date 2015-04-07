@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title ng-bind="app.title + ' | Movie Application'"></title>
+    <base href="/">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="hom">Movie Application</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a ui-sref="home">Home</a>
+                    </li>
+                    <li>
+                        <a ui-sref="movies.add">Add Movie</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <toaster-container></toaster-container>
+        @RenderBody()
+        <div ui-view class="row"></div>
+        <hr />
+        <div class="scroll-top-wrapper" scroll-up ng-class="{'show': app.showScrollButton}">
+            <span class="scroll-top-inner">
+                <i class="glyphicon glyphicon-chevron-up"></i>
+            </span>
+        </div>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Movie App</p>
+        </footer>
+    </div>
+    <!-- Templates -->
+    @*Templates are loaded here because we have only few templates and there is no need to load
+        templates through a server request*@
+    @Html.Partial("_Home")
+    @Html.Partial("_AddMovie")
+    @Html.Partial("_DetailsMovie")
+    <!-- End Templates -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @Scripts.Render("~/bundles/app")
+    @Scripts.Render("~/bundles/service")
+    @Scripts.Render("~/bundles/directive")
+    @Scripts.Render("~/bundles/filter")
+    @Scripts.Render("~/bundles/controller")
+</body>
+</html>

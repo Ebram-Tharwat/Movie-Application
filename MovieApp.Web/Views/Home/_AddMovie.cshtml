@@ -1,0 +1,34 @@
+﻿<script type="text/ng-template" id="add-movie.html">
+    <div class="col-xs-12">
+        <form name="form" role="form" novalidate>
+            <div class="form-group">
+                <label>Select a movie:</label>
+                <angucomplete-alt id="select-movie"
+                                  placeholder="Enter movie name"
+                                  pause="400"
+                                  selected-object="vm.selectedMovie"
+                                  remote-url="{{vm.remoteUrl}}"
+                                  remote-url-data-field="results"
+                                  title-field="title"
+                                  image-field="moviePic"
+                                  minlength="2"
+                                  field-required="true"
+                                  match-class="highlight"
+                                  remote-url-response-formatter="vm.addImageUrlToObject"
+                                  input-class="form-control form-control-small" />
+            </div>
+            <div class="form-group">
+                <label>Rate:</label>
+                <div>
+                    <rating ng-model="vm.movie.rate" max="vm.maxRate" readonly="!vm.selectedMovie" state-on="'glyphicon-star gi-2x'" state-off="'glyphicon-star-empty gi-2x'"></rating>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Comment:</label>
+                <textarea class="form-control" rows="4" ng-model="vm.movie.comment" ng-disabled="!vm.selectedMovie" placeholder="Enter your comment"></textarea>
+            </div>
+            <button class="btn btn-primary pull-right" ng-disabled="!vm.selectedMovie" ng-click="vm.addMovie()">Submit</button>
+        </form>
+    </div>
+
+</script>

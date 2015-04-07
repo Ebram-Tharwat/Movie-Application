@@ -1,0 +1,24 @@
+﻿<script type="text/ng-template" id="home.html">
+    <div class="col-xs-12">
+        <div class="jumbotron">
+            <h1>Hello, there!</h1>
+            <p>
+                A Movie Application that is built with love and care!.
+            </p>            
+        </div>
+        <input type="text" placeholder="Search for existed movies" class="form-control" ng-model="vm.search" />
+        <div class="row padding-top relative">
+            <div data-loading-indicator loading="vm.loading" message="loading movies..."></div>
+            <div class="col-md-3 col-sm-6 text-center" ng-repeat="movie in vm.movies | filter: {title: vm.search}">
+                <a ui-sref="movies.details({movieId:movie.id})">
+                    <img class="img-responsive" src="http://image.tmdb.org/t/p/w342{{movie.image}}" />
+                </a>
+                <h3 ng-bind="movie.title"></h3>
+                <rating ng-model="movie.rate" readonly="true" max="vm.maxRate"></rating>
+            </div>
+            <div ng-show="vm.movies.length ==0" class="text-center">
+                <i><strong>No movies yet!. <a ui-sref="movies.add">add new </a></strong></i>
+            </div>
+        </div>
+    </div>
+</script>
