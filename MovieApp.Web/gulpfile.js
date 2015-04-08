@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	autoprefix = require('gulp-autoprefixer'),
 	jasmine = require('gulp-jasmine'),
 	jshint = require('gulp-jshint')
-karma = require('gulp-karma');
+karma = require('karma').server;
 
 var lessPath = {
 	src: ['./Content/bootstrap/bootstrap.less', './Content/*.less', './Content/fontawesome/font-awesome.less'],
@@ -36,20 +36,14 @@ gulp.task('less', function() {
 });
 
 // run jasmine tests
-gulp.task('test', function() {
-	gulp.src('./foobar')
-		.pipe(karma({
-			configFile: 'karma.config.js',
-			action: 'run'
-		}))
-		.on('error', function(err) {
-			// Make sure failed tests cause gulp to exit non-zero
-			console.log(err);
-			this.emit('end'); //instead of erroring the stream, end it
-		});
+gulp.task('test', function(done) {
+	karma.start({
+		configFile: __dirname + '/karma.conf.js',
+		singleRun: true
+	}, done);
 });
 
-gulp.task('default', ['less'], function() {
+gulp.task('default', ['less', 'test'], function() {
 	gulp.watch(lessPath.src, ['less']);
 	//gulp.watch(jsPath.src, ['jshint']);
 })

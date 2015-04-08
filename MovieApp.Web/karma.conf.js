@@ -1,5 +1,4 @@
 // Karma configuration
-
 module.exports = function(config) {
     config.set({
 
@@ -12,10 +11,10 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            './scripts/angular.min.js',
+            './scripts/angular.js',
             './scripts/angular-mocks.js',
-            './app/*.js',            
-            './app/**/*.js'            
+            './app/*.js',
+            './app/specs/*.js'
         ],
 
         // list of files to exclude
@@ -42,11 +41,11 @@ module.exports = function(config) {
         logLevel: config.LOG_INFO,
 
         // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
+        autoWatch: false,
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],        
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
