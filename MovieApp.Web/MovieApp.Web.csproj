@@ -154,7 +154,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\JasmineController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,10 +169,13 @@
     <Content Include="app\directives\loadingIndicator.js" />
     <Content Include="app\filters\filterByKey.js" />
     <Content Include="app\services\moviesService.js" />
+    <Content Include="app\specs\addMovieCtrlSpec.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\angucomplete-alt.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\fb-loader.gif" />
+    <Content Include="Content\jasmine\jasmine.css" />
+    <Content Include="Content\jasmine\jasmine_favicon.png" />
     <Content Include="Content\toaster.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -316,6 +319,7 @@
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Content\site.less" />
+    <None Include="Properties\PublishProfiles\movieapp_ebram.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1060,6 +1064,14 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\jasmine-samples\Player.js" />
+    <Content Include="Scripts\jasmine-samples\PlayerSpec.js" />
+    <Content Include="Scripts\jasmine-samples\Song.js" />
+    <Content Include="Scripts\jasmine-samples\SpecHelper.js" />
+    <Content Include="Scripts\jasmine\boot.js" />
+    <Content Include="Scripts\jasmine\console.js" />
+    <Content Include="Scripts\jasmine\jasmine-html.js" />
+    <Content Include="Scripts\jasmine\jasmine.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -1085,6 +1097,7 @@
     <Content Include="Views\Home\_Home.cshtml" />
     <Content Include="Views\Home\_AddMovie.cshtml" />
     <Content Include="Views\Home\_DetailsMovie.cshtml" />
+    <Content Include="Views\Jasmine\SpecRunner.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

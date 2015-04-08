@@ -31,7 +31,7 @@
                         <label>Trailers:</label>
                         <div class="row">
                             <div ng-repeat="trailer in vm.movieExtraDetails.trailer" class="col-xs-4 trailer">
-                                <a href ng-click="vm.openYoutubeModal(trailer)">
+                                <a tooltip="Click to watch trailer" href ng-click="vm.openYoutubeModal(trailer)">
                                     <img class="img-responsive" ng-src="http://img.youtube.com/vi/{{trailer.key}}/hqdefault.jpg" />
                                 </a>
                             </div>
